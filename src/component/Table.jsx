@@ -17,10 +17,10 @@ function Table() {
   
 
     // const flatArray = user.flat(Infinity)
-    console.log(condition)
+    // console.log(condition)
   
 
-    console.log(user?.data)
+    // console.log(user?.data)
     const thArrey = ['name', 'Project Link', 'Project ID', 'Project Budget', 'Bid value', 'Created', 'Create By', 'Bidding Delay Time', 'Status', 'Deal Status', 'Action']
 
     // 
@@ -38,7 +38,7 @@ function Table() {
     const endIndex = startIndex + itemsPerPage;
   
     const displayedData = user?.data.slice(startIndex, endIndex);
-    console.log(displayedData);
+    // console.log(displayedData);
 
     const Filter =(item)=>{
         let data= document.getElementById(item);

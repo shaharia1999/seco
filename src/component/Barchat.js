@@ -6,53 +6,26 @@ import { UserContext } from '../App';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 const Barchat = () => {
     const user = useContext(UserContext);
-    const newDataSlice = user?.data?.slice(0, 25) || []
-    const newFirst1 = user?.data?.slice(25, 50) || []
-    const newFirst2 = user?.data?.slice(75, 100) || []
-    const newFirst3 = user?.data?.slice(100, 125) || []
-    const newFirst4 = user?.data?.slice(125, 150) || []
-    const newFirst5 = user?.data?.slice(150, 175) || []
-    const newFirst6 = user?.data?.slice(175, 200) || []
-    const newFirst7 = user?.data?.slice(200, 225) || []
-    const newFirst8 = user?.data?.slice(225, 250) || []
-    const [first, setFirst] = useState(0);
-    const [first2, setFirst2] = useState(0);
-    const [first3, setFirst3] = useState(0);
-    const [first4, setFirst4] = useState(0);
-    const [first5, setFirst5] = useState(0);
-    const [first6, setFirst6] = useState(0);
-    const [first7, setFirst7] = useState(0);
-    const [first8, setFirst8] = useState(0);
-    const [first9, setFirst9] = useState(0);
-    const [first10, setFirst10] = useState(0);
-
-
+  useEffect(()=>{
+    if(user){
     
-    // const newdata=user?.data
-   
+      const newDataSlice = user?.data?.slice(0, 25).filter((x) => x.deal_status === 1);
+      const newFirst1 = user?.data?.slice(25, 50).filter((x) => x.deal_status === 1)
+      const newFirst2 = user?.data?.slice(50, 75).filter((x) => x.deal_status === 1)
+      const newFirst3 = user?.data?.slice(75, 100).filter((x) => x.deal_status === 1)
+      const newFirst4 = user?.data?.slice(100, 125).filter((x) => x.deal_status === 1)
+      const newFirst5 = user?.data?.slice(125, 150).filter((x) => x.deal_status === 1)
+      const newFirst6 = user?.data?.slice(150, 175).filter((x) => x.deal_status === 1)
+      const newFirst7 = user?.data?.slice(175, 200).filter((x) => x.deal_status === 1)
+      const newFirst8 = user?.data?.slice(200, 225).filter((x) => x.deal_status === 1)
+      const newFirst9 = user?.data?.slice(225, 250).filter((x) => x.deal_status === 1)
+      console.log(newDataSlice.length,newFirst1.length,newFirst2.length,newFirst3.length,newFirst4.length,newFirst5.length,newFirst6.length,newFirst7.length,newFirst8.length,newFirst9.length);
 
-    useEffect(() => {
-        console.log(first8);
-        setTimeout(() => {
-          let newdata2 = newDataSlice.filter((x) => x.deal_status === 1);
-          setFirst(Number(newdata2.length));
-          let newdata4 = newFirst1.filter((x) => x.deal_status === 1);
-          setFirst2(Number(newdata4.length));
-          let newdata5 = newFirst2.filter((x) => x.deal_status === 1);
-          setFirst3(Number(newdata5.length));
-          let newdata6 = newFirst3.filter((x) => x.deal_status === 1);
-          setFirst4(Number(newdata6.length));
-          let newdata7 = newFirst4.filter((x) => x.deal_status === 1);
-          setFirst5(Number(newdata5.length));
-          let newdata8 = newFirst6.filter((x) => x.deal_status === 1);
-          setFirst6(Number(newdata7.length));
-          let newdata9 = newFirst8.filter((x) => x.deal_status === 1);
-          setFirst7(Number(newdata2.length));
-  
-        }, );
-      }, [newDataSlice,first]);
+      
+    }
     
-
+    
+  },[user])
 const [options2, setOptions2] = useState({
     animationEnabled: true,
     exportEnabled: true,
@@ -71,11 +44,13 @@ const [options2, setOptions2] = useState({
         { x: 25, y:3},
         { x: 50, y: 6 },
         { x: 75, y: 5 },
-        { x: 100, y: 1 },
-        { x: 125, y: 5},
+        { x: 100, y: 5 },
+        { x: 125, y: 1},
         { x: 150, y: 2},
-        { x: 175, y: 3 },
-        { x: 200, y:0 },
+        { x: 175, y: 5 },
+        { x: 200, y:6 },
+        { x: 225, y:9 },
+        { x: 250, y:2 },
     
       
       ]
@@ -88,6 +63,7 @@ const [options2, setOptions2] = useState({
 
   return (
     <div className='  px-10 mt-20'>
+      <h1>Hare convet deal 0-25=3, 25-50=6, 50-75=5, 75-100=5, 100-125=1, 125-150=2, 150-175=5, 175-200=6, 200-225=9, 225-250-2</h1>
  
       <CanvasJSChart options={options2} />
   
